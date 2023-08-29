@@ -85,9 +85,9 @@
             <button id="equals">=</button>
         </div>
     </div>
-    <script>
+<script>
         const display = document.getElementById("display");
-        const buttons = document.querySelectorAll(".number, .operator, #clear, #equals");
+        const buttons = document.querySelectorAll(".number, .operator, #clear, #equals, #backspace"); // Include the backspace button
 
         buttons.forEach(button => {
             button.addEventListener("click", () => {
@@ -99,6 +99,8 @@
                     } catch (error) {
                         display.value = "Error";
                     }
+                } else if (button.id === "backspace") { // Handle backspace button
+                    display.value = display.value.slice(0, -1);
                 } else {
                     display.value += button.textContent;
                 }
